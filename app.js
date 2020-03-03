@@ -13,16 +13,22 @@ const express = require("express");
 const app = express();
 //request
 const request = require("request");
-//
-
+//dotenv
+require('dotenv').config()
+//KEY
+const port = process.env.PORT
+const OMDB = process.env.OMDB_API
 app.set("view engine", "ejs");
 
 
 app.get("/", (err, res) =>{
-    res.render("results");
+    request(`${OMDB}&t=spiderman`, (error, response, body) => {
+        let movies = body
+        res.render("results", {movies:movies})
+    })
 })
 
-app.listen(5000, (err,res)=>{
-    if   (!err) console.log("Running on 5000", res)
-    else        console.log(err);
+app.listen(port, (err,res)=>{
+    if   (!err) console.log(`Running on ${port}`)
+    else        return err;
 })
