@@ -2,18 +2,22 @@
 
 <div class="container">
     <h1>MOVIES</h1>
+    
     <div class="row">
+
     <% movies["Search"].forEach(movie => { %>
-        
-        <div class="col-3">
-            <h1><%= movie.Title%></h1>
+        <div class="card col-4">
+            <div class="card-body">
+                <h2 class="card-title"><%= movie.Title%></h2>
+            </div>
             <% if(movie.Poster !== 'N/A') {%>
-            <img src=<%=movie.Poster%> class="img-fluid">
+                <img src=<%=movie.Poster%> class="card-img-top img-fluid">
             <%}else {%>
-            <h3>SORRY NO IMAGE</h3>
+                <h4>SORRY NO IMAGE</h4>
             <%}%>
         </div>
-    <% }); %> 
+    <% }); %>
+
     </div>
 </div>
 

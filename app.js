@@ -21,7 +21,7 @@ app.set("view engine", "ejs");
 
 
 app.get("/", (err, res) =>{
-    if(err) console.log("err: " + err);
+    //if(err) console.log(err);
     request(`${OMDB}&s=spiderman`, (error, response, body) => {
         if (error) console.log("ERROR: "+error);
         let movies = JSON.parse(body) 
