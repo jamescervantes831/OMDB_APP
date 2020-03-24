@@ -1,19 +1,19 @@
 <%- include("partials/header") %>
 
 <div class="container">
-    <h1>MOVIES</h1>
-    
+    <h1 class="text-center">MOVIES</h1>
     <div class="row">
 
     <% movies["Search"].forEach(movie => { %>
         <div class="card col-4">
             <div class="card-body">
                 <h2 class="card-title"><%= movie.Title%></h2>
+                <p>Movie was released in <%= movie.Year %></p>
             </div>
             <% if(movie.Poster !== 'N/A') {%>
-                <img src=<%=movie.Poster%> class="card-img-top img-fluid">
+                <img src=<%=movie.Poster%> class="card-img-top">
             <%}else {%>
-                <h4>SORRY NO IMAGE</h4>
+                <h4 class="card-img-top">SORRY NO IMAGE</h4>
             <%}%>
         </div>
     <% }); %>
