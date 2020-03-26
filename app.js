@@ -30,7 +30,6 @@ app.get("/", (err, res) =>{
 
 app.get("/search", (req ,res)=>{
     var search = req.query.search
-    console.log(search);
     request(`${OMDB}&s=${search}`, (error,response,body) =>{
         if (error) console.log("ERROR: "+error);
         let movies = JSON.parse(body)

@@ -2,23 +2,26 @@
 
 <div class="container">
     <h1 class="text-center">MOVIES</h1>
-    
-    <form action="/search" method="GET">
-        <input type="text" placeholder="Favorite Movie" name="search">
-        <input type="submit">
-    </form>
+    <div class="row justify-content-center">
+    <div class="form-inline">
+        <form action="/search" method="GET">
+            <input type="text" class="form-control" placeholder="Favorite Movie" name="search" >
+            <input  type="submit" class="btn btn-primary">
+        </form>
+    </div>
+    </div>
+    <div class="row justify-content-around">
 
-    <div class="row">
     <% movies["Search"].forEach(movie => { %>
-        <div class="card col-4">
-            <div class="card-body">
-                <h2 class="card-title"><%= movie.Title%></h2>
-                <p>Movie was released in <%= movie.Year %></p>
+        <div class="card col-3 m-1">
+            <div class="cardBody">
+                <h2><%= movie.Title%></h2>
+                <p>Released: <%= movie.Year %></p>
             </div>
             <% if(movie.Poster !== 'N/A') {%>
-                <img src=<%=movie.Poster%> class="card-img-top">
+                <img src=<%=movie.Poster%> class="image">
             <%}else {%>
-                <h4 class="card-img-top">SORRY NO IMAGE</h4>
+                <h4>SORRY NO IMAGE</h4>
             <%}%>
         </div>
     <% }); %>

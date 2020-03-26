@@ -1,6 +1,8 @@
-.card{
-    border: solid black 5px;
+body{
+    background:#C0C0C0;
 }
-.cardbody{
-    padding: 0rem;
+.card{
+    border: solid #000 5px;
+    background-color: #000;
+    margin: 30px;
 }
