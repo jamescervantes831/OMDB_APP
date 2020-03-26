@@ -2,8 +2,13 @@
 
 <div class="container">
     <h1 class="text-center">MOVIES</h1>
-    <div class="row">
+    
+    <form action="/search" method="GET">
+        <input type="text" placeholder="Favorite Movie" name="search">
+        <input type="submit">
+    </form>
 
+    <div class="row">
     <% movies["Search"].forEach(movie => { %>
         <div class="card col-4">
             <div class="card-body">

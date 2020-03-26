@@ -19,12 +19,21 @@ const port = process.env.PORT
 const OMDB = process.env.OMDB_API
 app.set("view engine", "ejs");
 
-
 app.get("/", (err, res) =>{
     //if(err) console.log(err);
     request(`${OMDB}&s=spiderman`, (error, response, body) => {
         if (error) console.log("ERROR: "+error);
         let movies = JSON.parse(body) 
+        res.render("results", {movies:movies})
+    })
+})
+
+app.get("/search", (req ,res)=>{
+    var search = req.query.search
+    console.log(search);
+    request(`${OMDB}&s=${search}`, (error,response,body) =>{
+        if (error) console.log("ERROR: "+error);
+        let movies = JSON.parse(body)
         res.render("results", {movies:movies})
     })
 })
